@@ -31,6 +31,7 @@ public class TTenantRoleController {
     public List<TTenantRole> findAll(){
         return  service.findAll();
     }
+
     @RequestMapping(value = "/findById",method = RequestMethod.GET)
     public TTenantRole findById(@RequestParam(value = "id") int id){
         return  service.findById(id);

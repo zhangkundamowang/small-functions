@@ -29,4 +29,5 @@
         from t_tenant_role
 
     </select>
+
 </mapper>

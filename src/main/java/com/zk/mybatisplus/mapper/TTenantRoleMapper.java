@@ -17,6 +17,8 @@ import java.util.List;
  */
 @Mapper
 public interface TTenantRoleMapper extends BaseMapper<TTenantRole> {
+
   List<TTenantRole> findAll();
+
   TTenantRole findById(@Param("id") Integer id);
 }
