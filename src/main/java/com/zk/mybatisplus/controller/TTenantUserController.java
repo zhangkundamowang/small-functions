@@ -15,16 +15,14 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author astupidcoder
+ * 用户管理
+ * @author zk
  * @since 2021-09-06
  */
 @RestController
 @RequestMapping("/user")
 public class TTenantUserController {
+
     @Resource
     private ITTenantUserService service;
 
