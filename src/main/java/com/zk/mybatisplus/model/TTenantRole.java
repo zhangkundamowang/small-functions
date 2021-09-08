@@ -2,24 +2,25 @@ package com.zk.mybatisplus.model;
 
     import com.baomidou.mybatisplus.annotation.IdType;
     import com.baomidou.mybatisplus.extension.activerecord.Model;
+    import java.util.Date;
     import com.baomidou.mybatisplus.annotation.TableId;
-    import java.time.LocalDateTime;
+    import java.io.Serializable;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
 
 /**
 * <p>
-    * 
+    *
     * </p>
 *
-* @author astupidcoder
-* @since 2021-09-06
+* @author zk
+* @since 2021-09-08
 */
     @Data
     @EqualsAndHashCode(callSuper = true)
     @Accessors(chain = true)
-    public class TTenantRole extends Model {
+    public class TTenantRole extends Model<TTenantRole> {
 
     private static final long serialVersionUID = 1L;
 
@@ -52,12 +53,17 @@ package com.zk.mybatisplus.model;
             /**
             * 创建时间
             */
-    private LocalDateTime createTime;
+    private Date createTime;
 
             /**
             * 更新时间
             */
-    private LocalDateTime updateTime;
+    private Date updateTime;
 
+
+    @Override
+    protected Serializable pkVal() {
+        return this.id;
+    }
 
 }

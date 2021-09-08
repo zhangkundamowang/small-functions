@@ -2,7 +2,7 @@ package com.zk.mybatisplus.service.impl;
 
 import com.zk.mybatisplus.model.TTenantRole;
 import com.zk.mybatisplus.mapper.TTenantRoleMapper;
-import com.zk.mybatisplus.service.ITTenantRoleService;
+import com.zk.mybatisplus.service.TTenantRoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -14,13 +14,15 @@ import java.util.List;
  *  服务实现类
  * </p>
  *
- * @author astupidcoder
- * @since 2021-09-06
+ * @author zk
+ * @since 2021-09-08
  */
 @Service
-public class TTenantRoleServiceImpl extends ServiceImpl<TTenantRoleMapper, TTenantRole> implements ITTenantRoleService {
+public class TTenantRoleServiceImpl extends ServiceImpl<TTenantRoleMapper, TTenantRole> implements TTenantRoleService {
+
     @Resource
-    private TTenantRoleMapper mapper;
+    private  TTenantRoleMapper mapper;
+
     @Override
     public List<TTenantRole> findAll() {
         return mapper.findAll();

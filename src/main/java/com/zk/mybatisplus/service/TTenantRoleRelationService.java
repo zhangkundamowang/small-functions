@@ -8,9 +8,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
  *  服务类
  * </p>
  *
- * @author astupidcoder
- * @since 2021-09-06
+ * @author zk
+ * @since 2021-09-08
  */
-public interface ITTenantRoleRelationService extends IService<TTenantRoleRelation> {
+public interface TTenantRoleRelationService extends IService<TTenantRoleRelation> {
 
 }

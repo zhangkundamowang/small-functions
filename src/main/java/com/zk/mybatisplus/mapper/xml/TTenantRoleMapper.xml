@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.zk.mybatisplus.mapper.TTenantRoleMapper">
+
+    <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.zk.mybatisplus.model.TTenantRole">
-        <id column="id" property="id" jdbcType="INTEGER" />
-        <result property="tenantAccounts" column="tenant_accounts" jdbcType="VARCHAR"/>
-        <result property="roleName" column="role_name" jdbcType="VARCHAR"/>
-        <result property="roleCode" column="role_code" jdbcType="VARCHAR"/>
-        <result property="valid" column="valid" jdbcType="VARCHAR"/>
-        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
-        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <id column="id" property="id" />
+        <result column="tenant_accounts" property="tenantAccounts" />
+        <result column="role_name" property="roleName" />
+        <result column="role_code" property="roleCode" />
+        <result column="valid" property="valid" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
     </resultMap>
 
     <sql id="Base_Column_List" >
@@ -27,7 +28,6 @@
         select
         <include refid="Base_Column_List" />
         from t_tenant_role
-
     </select>
 
 </mapper>

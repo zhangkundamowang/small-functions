@@ -1,8 +1,7 @@
 package com.zk.mybatisplus.controller;
 
-
 import com.zk.mybatisplus.model.TTenantRole;
-import com.zk.mybatisplus.service.ITTenantRoleService;
+import com.zk.mybatisplus.service.TTenantRoleService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +18,7 @@ import java.util.List;
 @RequestMapping("/role")
 public class TTenantRoleController {
     @Resource
-    private ITTenantRoleService service;
+    private TTenantRoleService service;
 
 
     @RequestMapping(value = "/findAll",method = RequestMethod.GET)

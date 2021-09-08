@@ -10,10 +10,12 @@ import java.util.List;
  *  服务类
  * </p>
  *
- * @author astupidcoder
- * @since 2021-09-06
+ * @author zk
+ * @since 2021-09-08
  */
-public interface ITTenantRoleService extends IService<TTenantRole> {
+public interface TTenantRoleService extends IService<TTenantRole> {
+
     List<TTenantRole> findAll();
+
     TTenantRole findById(Integer id);
 }
