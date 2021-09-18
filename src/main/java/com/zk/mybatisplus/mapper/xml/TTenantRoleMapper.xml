@@ -4,29 +4,41 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.zk.mybatisplus.model.TTenantRole">
-        <id column="id" property="id" />
-        <result column="tenant_accounts" property="tenantAccounts" />
-        <result column="role_name" property="roleName" />
-        <result column="role_code" property="roleCode" />
-        <result column="valid" property="valid" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
+        <id column="id" property="id"/>
+        <result column="tenant_accounts" property="tenantAccounts"/>
+        <result column="role_name" property="roleName"/>
+        <result column="role_code" property="roleCode"/>
+        <result column="valid" property="valid"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <!--colunm 可以看作传入findUsersByRoleId方法的参数  也就是role类的id字段 -->
+        <!--查询角色的时候会把查询到的角色的id字段传给findUsersByRoleId方法,然后调用下面的findUsersByRoleId，查出角色下的所有用户-->
+        <collection property="userList" column="id" select="findUsersByRoleId"></collection>
     </resultMap>
 
-    <sql id="Base_Column_List" >
+    <sql id="Base_Column_List">
 		id,tenant_accounts,role_name,role_code,valid,create_time,update_time
 	</sql>
 
-    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Integer"   >
+    <select id="findUsersByRoleId" resultType="com.zk.mybatisplus.model.TTenantUser">
+        SELECT
+        t.*
+        FROM t_tenant_user t join t_tenant_role r on t.role_id=r.id
+        where t.role_id=#{id}
+    </select>
+
+    <select id="findById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
-        <include refid="Base_Column_List" />
+        <include refid="Base_Column_List"/>
         from t_tenant_role
         where id = #{id}
     </select>
 
-    <select id="findAll"  resultMap="BaseResultMap" resultType="java.util.List" >
+    <!--resultType返回的是集合中的元素类型，而不是集合本身-->
+    <!--resultMap="BaseResultMap" 会触发findUsersByRoleId方法-->
+    <select id="findAll" resultMap="BaseResultMap" resultType="com.zk.mybatisplus.model.TTenantRole">
         select
-        <include refid="Base_Column_List" />
+        <include refid="Base_Column_List"/>
         from t_tenant_role
     </select>
 

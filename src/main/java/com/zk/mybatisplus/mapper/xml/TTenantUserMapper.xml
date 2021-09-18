@@ -4,27 +4,63 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.zk.mybatisplus.model.TTenantUser">
-        <id column="id" property="id" />
-        <result column="tenant_accounts" property="tenantAccounts" />
-        <result column="tenant_name" property="tenantName" />
-        <result column="department_id" property="departmentId" />
-        <result column="employee_no" property="employeeNo" />
-        <result column="accounts" property="accounts" />
-        <result column="user_name" property="userName" />
-        <result column="mobile" property="mobile" />
-        <result column="password" property="password" />
-        <result column="role_id" property="roleId" />
-        <result column="valid" property="valid" />
-        <result column="province" property="province" />
-        <result column="city" property="city" />
-        <result column="area" property="area" />
-        <result column="address" property="address" />
-        <result column="init_password" property="initPassword" />
-        <result column="is_root" property="isRoot" />
-        <result column="create_time" property="createTime" />
-        <result column="update_time" property="updateTime" />
-        <result column="login_count" property="loginCount" />
-        <result column="login_time" property="loginTime" />
+        <id column="id" property="id"/>
+        <result column="tenant_accounts" property="tenantAccounts"/>
+        <result column="tenant_name" property="tenantName"/>
+        <result column="department_id" property="departmentId"/>
+        <result column="employee_no" property="employeeNo"/>
+        <result column="accounts" property="accounts"/>
+        <result column="user_name" property="userName"/>
+        <result column="mobile" property="mobile"/>
+        <result column="password" property="password"/>
+        <result column="role_id" property="roleId"/>
+        <result column="valid" property="valid"/>
+        <result column="province" property="province"/>
+        <result column="city" property="city"/>
+        <result column="area" property="area"/>
+        <result column="address" property="address"/>
+        <result column="init_password" property="initPassword"/>
+        <result column="is_root" property="isRoot"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="login_count" property="loginCount"/>
+        <result column="login_time" property="loginTime"/>
+        <!--通过user表中的role_id字段查询role表-->
+        <association property="role" column="role_id" select="findRoleUnderUser"/>
     </resultMap>
+
+    <select id="findRoleUnderUser" resultType="com.zk.mybatisplus.model.TTenantRole">
+        SELECT
+        r.*
+        from t_tenant_role r
+        LEFT JOIN t_tenant_user u on r.id=u.role_id
+        where r.id=#{roleId}
+    </select>
+
+    <!--查询的字段  相对TTenantUser类中属性少的字段为null 相对TTenantUser类中属性多的字段查不出-->
+    <select id="getUserById" resultMap="BaseResultMap">
+        SELECT t.*
+        FROM t_tenant_user t
+        LEFT JOIN t_tenant_role r on r.id=t.role_id
+        <where>
+            <if test="id!=null and id!=''">
+                and t.id=#{id}
+            </if>
+        </where>
+    </select>
+
+
+    <!--resultType为TTenantUser ，查询结果为  TTenantUser类中包含的属性并且数据库中两张表也包含的字段所对应的数据 -->
+    <!-- 删除属性就查不出属性对应的数据 user实体类中增加role表中的字段可多查相应字段对应的数据-->
+    <select id="getUserByName" resultMap="BaseResultMap" resultType="com.zk.mybatisplus.model.TTenantUser">
+        SELECT t.*,r.* FROM t_tenant_user t
+        LEFT JOIN t_tenant_role r on t.role_id=r.id
+        <where>
+            <if test="name!=null and name!=''">
+                and t.tenant_name=#{name}
+            </if>
+        </where>
+    </select>
+
 
 </mapper>

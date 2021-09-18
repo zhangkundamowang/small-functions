@@ -2,12 +2,13 @@ package com.zk.mybatisplus.service;
 
 import com.zk.mybatisplus.model.TTenantRole;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zk.mybatisplus.model.TTenantUser;
 
 import java.util.List;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author zk
@@ -18,4 +19,7 @@ public interface TTenantRoleService extends IService<TTenantRole> {
     List<TTenantRole> findAll();
 
     TTenantRole findById(Integer id);
+
+    List<TTenantUser> findUsersByRoleId(Integer id);
+
 }
