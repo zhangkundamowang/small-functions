@@ -12,13 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
-
 import javax.annotation.Resource;
 import java.util.List;
 
 /**
  * 角色管理
- *
  * @author zk
  * @since 2021-09-06
  */
@@ -26,6 +24,7 @@ import java.util.List;
 @RequestMapping("/role")
 @Api(value = "角色管理",tags = "角色管理")
 public class TTenantRoleController {
+
     @Resource
     private TTenantRoleService service;
 
@@ -33,7 +32,6 @@ public class TTenantRoleController {
     @RequestMapping(value = "/findAll", method = RequestMethod.POST)
     @ApiOperation(value = "查询所有角色")
     public List<TTenantRole> findAll() {
-
         return service.findAll();
     }
 
@@ -45,7 +43,6 @@ public class TTenantRoleController {
         return service.findById(id);
     }
 
-
     /**
      * 查询该角色下的所有用户 一个角色对应多个用户 一对多
      */
@@ -54,4 +51,5 @@ public class TTenantRoleController {
     public List<TTenantUser> findUsersByRoleId(@Param("id") Integer id) {
         return service.findUsersByRoleId(id);
     }
+
 }

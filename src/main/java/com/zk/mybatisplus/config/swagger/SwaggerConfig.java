@@ -22,6 +22,7 @@ import java.util.regex.Pattern;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+
     @Value("${swagger.enable}")
     private boolean enable;
 
@@ -29,6 +30,7 @@ public class SwaggerConfig {
      * 不需要过滤的路径集合
      */
     private String exclude = "/swagger-resources,/webjars/*,/doc.html,/v2/*";
+
     /**
      * 匹配不需要过滤路径的正则表达式
      */
@@ -97,7 +99,6 @@ public class SwaggerConfig {
                 String tmpExclude = excludes[i];
                 //对点、反斜杠和星号进行转义
                 tmpExclude = tmpExclude.replace("\\", "\\\\").replace(".", "\\.").replace("*", ".*");
-
                 tmpExclude = "^" + tmpExclude + "$";
                 excludes[i] = tmpExclude;
             }

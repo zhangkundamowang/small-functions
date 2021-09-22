@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiParam;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
+
 import javax.annotation.Resource;
 
 /**
@@ -47,23 +48,19 @@ public class TTenantUserController {
         return userService.page(page, wrapper);
     }
 
-
     @RequestMapping(value = "/findById", method = RequestMethod.POST)
-    @ApiOperation(value = "通过id查找用户" )
+    @ApiOperation(value = "通过id查找用户")
     public TTenantUser findUserById(
             @ApiParam(name = "id", value = "用户id")
             @RequestParam(value = "id", required = true) Integer id) {
-
         return userService.findUserById(id);
     }
-
 
     @RequestMapping(value = "/findByName", method = RequestMethod.POST)
     @ApiOperation(value = "通过name查找用户")
     public TTenantUser findUserByName(
             @ApiParam(name = "name", value = "用户名")
             @RequestParam(value = "name", required = true) String name) {
-
         return userService.findUserByName(name);
     }
 

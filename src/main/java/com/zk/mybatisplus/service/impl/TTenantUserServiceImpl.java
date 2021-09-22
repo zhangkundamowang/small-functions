@@ -6,14 +6,9 @@ import com.zk.mybatisplus.mapper.TTenantUserMapper;
 import com.zk.mybatisplus.service.TTenantUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
-
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
- * <p>
- * 服务实现类
- * </p>
  *
  * @author zk
  * @since 2021-09-08
