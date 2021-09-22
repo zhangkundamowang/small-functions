@@ -38,7 +38,7 @@
     </select>
 
     <!--查询的字段  相对TTenantUser类中属性少的字段为null 相对TTenantUser类中属性多的字段查不出-->
-    <select id="getUserById" resultMap="BaseResultMap">
+    <select id="getUserById" resultType="com.zk.mybatisplus.model.TTenantUser" >
         SELECT t.*
         FROM t_tenant_user t
         LEFT JOIN t_tenant_role r on r.id=t.role_id
@@ -52,7 +52,7 @@
 
     <!--resultType为TTenantUser ，查询结果为  TTenantUser类中包含的属性并且数据库中两张表也包含的字段所对应的数据 -->
     <!-- 删除属性就查不出属性对应的数据 user实体类中增加role表中的字段可多查相应字段对应的数据-->
-    <select id="getUserByName" resultMap="BaseResultMap" resultType="com.zk.mybatisplus.model.TTenantUser">
+    <select id="getUserByName"  resultType="com.zk.mybatisplus.model.TTenantUser">
         SELECT t.*,r.* FROM t_tenant_user t
         LEFT JOIN t_tenant_role r on t.role_id=r.id
         <where>

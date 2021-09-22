@@ -1,4 +1,4 @@
-package com.zk.mybatisplus.config;
+package com.zk.mybatisplus.config.mybatisplus;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;

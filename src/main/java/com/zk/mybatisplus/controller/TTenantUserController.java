@@ -6,13 +6,13 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zk.mybatisplus.model.TTenantRole;
 import com.zk.mybatisplus.model.TTenantUser;
 import com.zk.mybatisplus.service.TTenantUserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.ApiIgnore;
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * 用户管理
@@ -22,6 +22,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/user")
+@Api(value = "用户管理！", tags = "用户管理")
 public class TTenantUserController {
 
     @Resource
@@ -31,10 +32,13 @@ public class TTenantUserController {
      * 分页
      */
     @RequestMapping(value = "/findAll", method = RequestMethod.POST)
-    public IPage<TTenantUser> findAll(HttpServletRequest request) {
-        //获取前台发送过来的数据
-        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
-        Integer pageSize = Integer.valueOf(request.getParameter("pageSize"));
+    @ApiOperation(value = "获取所有用户")
+    public IPage<TTenantUser> findAll(
+            @ApiParam(name = "pageNo", value = "当前页")
+            @RequestParam(value = "pageNo", required = false, defaultValue = "1") Integer pageNo,
+            @ApiParam(name = "pageSize", value = "每一页数据个数")
+            @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize) {
+
         IPage<TTenantUser> page = new Page<>(pageNo, pageSize);
         QueryWrapper<TTenantUser> wrapper = new QueryWrapper<>();
         TTenantUser user = new TTenantUser();
@@ -45,19 +49,30 @@ public class TTenantUserController {
 
 
     @RequestMapping(value = "/findById", method = RequestMethod.POST)
-    public TTenantUser findUserById(@Param("id") Integer id) {
+    @ApiOperation(value = "通过id查找用户" )
+    public TTenantUser findUserById(
+            @ApiParam(name = "id", value = "用户id")
+            @RequestParam(value = "id", required = true) Integer id) {
+
         return userService.findUserById(id);
     }
 
+
     @RequestMapping(value = "/findByName", method = RequestMethod.POST)
-    public TTenantUser findUserByName(@Param("name") String name) {
+    @ApiOperation(value = "通过name查找用户")
+    public TTenantUser findUserByName(
+            @ApiParam(name = "name", value = "用户名")
+            @RequestParam(value = "name", required = true) String name) {
+
         return userService.findUserByName(name);
     }
 
+
     /**
-     * 查询该用户对应的角色  多个用户对应一个角色
+     * 查询该用户对应的角色  多个用户对应一个角色 多对一
      */
-    @RequestMapping(value = "/findRoleUnderUser", method = RequestMethod.POST)
+    @PostMapping(value = "/findRoleUnderUser")
+    @ApiIgnore
     public TTenantRole findRolesUnderUser(@Param("roleId") Integer roleId) {
         return userService.findRoleUnderUser(roleId);
     }
