@@ -1,5 +1,6 @@
 package com.zk.mybatisplus.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zk.mybatisplus.model.TTenantRole;
 import com.zk.mybatisplus.model.TTenantUser;
 import com.zk.mybatisplus.service.TTenantRoleService;
@@ -28,10 +29,12 @@ public class TTenantRoleController {
     @Resource
     private TTenantRoleService service;
 
-
+    /**
+     * 分页
+     */
     @RequestMapping(value = "/findAll", method = RequestMethod.POST)
     @ApiOperation(value = "查询所有角色")
-    public List<TTenantRole> findAll() {
+    public IPage<TTenantRole> findAll() {
         return service.findAll();
     }
 

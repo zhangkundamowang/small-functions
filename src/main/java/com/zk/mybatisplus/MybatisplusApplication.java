@@ -13,7 +13,7 @@ public class MybatisplusApplication {
     public static void main(String[] args) {
         SpringApplication.run(MybatisplusApplication.class, args);
         log.info("程序启动成功！");
-        System.out.println("本地调试文档地址：http://localhost:84/doc.html");
+        System.out.println("本地调试文档地址：http://localhost:88/doc.html");
     }
 
 }

@@ -1,5 +1,6 @@
 package com.zk.mybatisplus.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.zk.mybatisplus.model.TTenantRole;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zk.mybatisplus.model.TTenantUser;
@@ -11,7 +12,7 @@ import java.util.List;
  */
 public interface TTenantRoleService extends IService<TTenantRole> {
 
-    List<TTenantRole> findAll();
+    IPage<TTenantRole> findAll();
 
     TTenantRole findById(Integer id);
 

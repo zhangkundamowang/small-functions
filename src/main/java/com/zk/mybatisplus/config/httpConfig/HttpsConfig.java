@@ -43,7 +43,7 @@ public class HttpsConfig {
         Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
         connector.setScheme("http");
         //监听的http端口
-        connector.setPort(84);
+        connector.setPort(88);
         connector.setSecure(false);
         //跳转的https端口
         connector.setRedirectPort(port);

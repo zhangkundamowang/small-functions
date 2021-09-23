@@ -1,5 +1,10 @@
 package com.zk.mybatisplus.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.zk.mybatisplus.config.mybatisplus.PageFactory;
 import com.zk.mybatisplus.model.TTenantRole;
 import com.zk.mybatisplus.mapper.TTenantRoleMapper;
 import com.zk.mybatisplus.model.TTenantUser;
@@ -20,8 +25,14 @@ public class TTenantRoleServiceImpl extends ServiceImpl<TTenantRoleMapper, TTena
     private TTenantRoleMapper mapper;
 
     @Override
-    public List<TTenantRole> findAll() {
-        return mapper.findAll();
+    public IPage<TTenantRole> findAll() {
+        LambdaQueryWrapper<TTenantRole> query= Wrappers.lambdaQuery();
+        query.eq(TTenantRole::getValid,"Y");
+
+        Page<TTenantRole> page=PageFactory.page();
+
+        IPage<TTenantRole> tTenantRoleIPage = mapper.selectPage(page, query);
+        return  tTenantRoleIPage;
     }
 
     @Override
