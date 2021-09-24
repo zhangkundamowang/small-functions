@@ -12,4 +12,21 @@
         <result column="update_time" property="updateTime" />
     </resultMap>
 
+    <select id="getDistance" resultType="java.lang.Double">
+        SELECT
+        ROUND(
+        6378.138 * 2 * ASIN(
+        SQRT(
+        POW(
+        SIN(
+        (#{lat1, jdbcType=DOUBLE} * PI() / 180 - #{lat2, jdbcType=DOUBLE} * PI() / 180) / 2),2
+        ) + COS(#{lat1, jdbcType=DOUBLE} * PI() / 180) * COS(#{lat2, jdbcType=DOUBLE} * PI() / 180) *
+        POW(
+        SIN(
+        (#{lng1, jdbcType=DOUBLE} * PI() / 180 - #{lng2, jdbcType=DOUBLE} * PI() / 180) / 2),2
+        )
+        )) * 1000)/1000 AS distance
+        FROM
+        t_distance d where d.id=1
+    </select>
 </mapper>
