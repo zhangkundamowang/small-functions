@@ -1,7 +1,5 @@
 package com.zk.mybatisplus.controller;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zk.mybatisplus.model.TTenantRole;
 import com.zk.mybatisplus.model.TTenantUser;
@@ -30,22 +28,17 @@ public class TTenantUserController {
     private TTenantUserService userService;
 
     /**
-     * 分页
+     * 第二种方式，使用mapper文件的select注解，优点是可以方便的建立查询语句，可以联合多表查询。
      */
-    @RequestMapping(value = "/findAll", method = RequestMethod.POST)
-    @ApiOperation(value = "获取所有用户")
-    public IPage<TTenantUser> findAll(
+    @RequestMapping(value = "/findUserByPage", method = RequestMethod.POST)
+    @ApiOperation(value = "分页获取所有用户")
+    public Page<TTenantUser> findUserByPage(
             @ApiParam(name = "pageNo", value = "当前页")
             @RequestParam(value = "pageNo", required = false, defaultValue = "1") Integer pageNo,
             @ApiParam(name = "pageSize", value = "每一页数据个数")
             @RequestParam(value = "pageSize", required = false, defaultValue = "5") Integer pageSize) {
 
-        IPage<TTenantUser> page = new Page<>(pageNo, pageSize);
-        QueryWrapper<TTenantUser> wrapper = new QueryWrapper<>();
-        TTenantUser user = new TTenantUser();
-        // user.setAddress("上海");
-        wrapper.setEntity(user);
-        return userService.page(page, wrapper);
+        return userService.findUserByPage(pageNo, pageSize);
     }
 
     @RequestMapping(value = "/findById", method = RequestMethod.POST)

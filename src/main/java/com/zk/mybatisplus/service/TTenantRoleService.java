@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface TTenantRoleService extends IService<TTenantRole> {
 
-    IPage<TTenantRole> findAll();
+    IPage<TTenantRole> findRoleByPage(Integer pageNo,Integer pageSize);
 
     TTenantRole findById(Integer id);
 

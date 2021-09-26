@@ -25,14 +25,12 @@ public class TTenantRoleServiceImpl extends ServiceImpl<TTenantRoleMapper, TTena
     private TTenantRoleMapper mapper;
 
     @Override
-    public IPage<TTenantRole> findAll() {
-        LambdaQueryWrapper<TTenantRole> query= Wrappers.lambdaQuery();
-        query.eq(TTenantRole::getValid,"Y");
-
-        Page<TTenantRole> page=PageFactory.page();
-
+    public IPage<TTenantRole> findRoleByPage(Integer pageNo,Integer pageSize) {
+        LambdaQueryWrapper<TTenantRole> query = Wrappers.lambdaQuery();
+        query.eq(TTenantRole::getValid, "Y");
+        Page<TTenantRole> page = PageFactory.page(pageNo,pageSize);
         IPage<TTenantRole> tTenantRoleIPage = mapper.selectPage(page, query);
-        return  tTenantRoleIPage;
+        return tTenantRoleIPage;
     }
 
     @Override
