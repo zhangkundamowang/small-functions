@@ -1,6 +1,7 @@
 package com.zk.mybatisplus.controller;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.zk.mybatisplus.config.aop.LogAnno;
 import com.zk.mybatisplus.model.TTenantRole;
 import com.zk.mybatisplus.model.TTenantUser;
 import com.zk.mybatisplus.service.TTenantUserService;
@@ -55,6 +56,13 @@ public class TTenantUserController {
             @ApiParam(name = "name", value = "用户名")
             @RequestParam(value = "name", required = true) String name) {
         return userService.findUserByName(name);
+    }
+
+    @LogAnno(operateType = "添加用户")
+    @RequestMapping(value = "/aop", method = RequestMethod.POST)
+    @ApiOperation(value = "测试Aop")
+    public void add() {
+        System.out.println("模拟操作---向数据库中添加用户!!");
     }
 
 

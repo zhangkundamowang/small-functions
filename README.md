@@ -1,6 +1,8 @@
-# MybatisPlus
- 1.讲解两种分页方式和自动生成代码
- 2.一对多，多对一
+SpringBoot框架
+
+ 1.添加mybatis_plus两种分页方式和自动生成代码
+ 2.添加mybatis_plus一对多，多对一
  3.添加Swagger2 api文档
  4.添加loggback.xml
- 5.计算两个经纬度之间的距离
+ 5.添加计算两个经纬度之间的距离
+ 6.添加自定义注解+aop 实现日志管理
