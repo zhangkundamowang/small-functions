@@ -11,7 +11,7 @@ import org.gavaghan.geodesy.GlobalCoordinates;
  * 经度范围是0-180°,纬度范围是0-90°
  */
 
-public class LatLngDistance {
+public class GetDistanceByLngLat {
 
     public static void main(String[] args) {
 
