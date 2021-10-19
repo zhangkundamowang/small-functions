@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.annotation.Resource;
 import java.util.Map;
 
@@ -20,7 +19,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/relation")
 @Api(tags = "用户角色关系管理", value = "用户角色关系管理")
-public class TTenantRoleRelationController {
+public class baiDuMapController {
 
     @Resource
     private TTenantRoleRelationMapper mapper;

@@ -18,7 +18,7 @@ import java.util.Map;
 @Service
 public class TTenantRoleRelationServiceImpl extends ServiceImpl<TTenantRoleRelationMapper, TTenantRoleRelation> implements TTenantRoleRelationService {
 
-    //百度地图 应用密钥
+    //百度地图 应用AK
     private static final String ak = "x5oankmSoKM9XEZsbtWPfE7aabnojtI9";
 
     //百度地图 驾车路线规划api
