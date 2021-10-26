@@ -28,6 +28,10 @@ public interface TTenantUserMapper extends BaseMapper<TTenantUser> {
 
     TTenantUser getUserByName(@Param("name") String name);
 
+    TTenantUser selectUserByName(@Param("name") String name);
+
+    TTenantUser selectUserByNameAndPwd(@Param("name") String name,@Param("password") String password);
+
     /**
      * 注意@Param("roleId") 这是传的参数
      */

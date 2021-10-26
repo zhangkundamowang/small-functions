@@ -63,4 +63,25 @@
     </select>
 
 
+    <select id="selectUserByName"  resultType="com.zk.mybatisplus.model.TTenantUser">
+        SELECT t.* FROM t_tenant_user t
+        <where>
+            <if test="name!=null and name!=''">
+                and t.user_name=#{name}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectUserByNameAndPwd"  resultType="com.zk.mybatisplus.model.TTenantUser">
+        SELECT t.* FROM t_tenant_user t
+        <where>
+            <if test="name!=null and name!=''">
+                and t.user_name=#{name}
+            </if>
+            <if test="password!=null and password!=''">
+                and t.password=#{password}
+            </if>
+        </where>
+    </select>
+
 </mapper>
