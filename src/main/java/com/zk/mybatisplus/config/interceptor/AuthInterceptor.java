@@ -1,5 +1,6 @@
 package com.zk.mybatisplus.config.interceptor;
 
+import com.zk.mybatisplus.common.utils.TokenUtil;
 import com.zk.mybatisplus.mapper.TTenantUserMapper;
 import com.zk.mybatisplus.model.TTenantUser;
 import org.slf4j.Logger;
@@ -34,6 +35,7 @@ public class AuthInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         logger.info("拦截器-已进入拦截器！！ preHandle业务执行前");
 
+        //已经登录的用户信息已经存储到session中 此处做登录拦截
         HttpSession session = request.getSession();
         String userName = session.getAttribute("userName") + "";
         String password = session.getAttribute("password") + "";
@@ -41,8 +43,15 @@ public class AuthInterceptor implements HandlerInterceptor {
         if (null == user) {
             logger.info("未登录，跳转到登录页面");
         }
+
+        //已经登录的用户已经把token传到前端 从请求中获取token实现登录认证
+        String token=request.getHeader("token");
+        boolean verify = TokenUtil.verify(token);
+        if(!verify){
+            logger.info("token认证失败！跳转到登录页面");
+        }
         String url = request.getRequestURI();
-        logger.info("url的值：" + url);
+        logger.info("拦截url的值：" + url);
         return true;//放行
     }
 

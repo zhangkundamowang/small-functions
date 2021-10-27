@@ -135,6 +135,12 @@
             <artifactId>httpcore</artifactId>
             <version>4.4.14</version>
         </dependency>
+        <!--json web token-->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.5.0</version>
+        </dependency>
         <!-- net.sf.json 开始 -->
         <dependency>
             <groupId>commons-beanutils</groupId>

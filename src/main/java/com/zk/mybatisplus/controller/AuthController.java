@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/root")
@@ -31,18 +33,18 @@ public class AuthController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ApiOperation(value = "登录")
-    public Boolean login(HttpServletRequest request,
-                         @ApiParam(name = "userName", value = "用户名")
-                         @RequestParam("userName") String userName,
-                         @ApiParam(name = "password", value = "密码")
-                         @RequestParam("password") String password) {
-        return userService.login(request,userName, password);
+    public Map<String, Object> login(HttpServletRequest request,
+                                     @ApiParam(name = "userName", value = "用户名")
+                                     @RequestParam("userName") String userName,
+                                     @ApiParam(name = "password", value = "密码")
+                                     @RequestParam("password") String password) {
+        return userService.login(request, userName, password);
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.POST)
     @ApiOperation(value = "登出")
-    public void logout( HttpServletRequest request) {
-       request.getSession().invalidate();
+    public void logout(HttpServletRequest request) {
+        request.getSession().invalidate();
     }
 
 

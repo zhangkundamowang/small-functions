@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 /**
  * @author zk
@@ -25,7 +26,7 @@ public interface TTenantUserService extends IService<TTenantUser> {
     /**
      * 登录
      */
-    boolean login(HttpServletRequest request, String userName, String password);
+    Map<String,Object> login(HttpServletRequest request, String userName, String password);
 
     /**
      * 注册

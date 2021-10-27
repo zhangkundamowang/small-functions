@@ -2,6 +2,7 @@ package com.zk.mybatisplus.service.impl;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zk.mybatisplus.common.utils.MD5Utils;
+import com.zk.mybatisplus.common.utils.TokenUtil;
 import com.zk.mybatisplus.model.TTenantRole;
 import com.zk.mybatisplus.model.TTenantUser;
 import com.zk.mybatisplus.mapper.TTenantUserMapper;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -52,8 +54,8 @@ public class TTenantUserServiceImpl extends ServiceImpl<TTenantUserMapper, TTena
     }
 
     @Override
-    public boolean login(HttpServletRequest request, String userName, String password) {
-        Boolean flag = false;
+    public Map<String,Object> login(HttpServletRequest request, String userName, String password) {
+        Map<String,Object> map=new HashMap<>();
         try {
             TTenantUser user = userMapper.selectUserByName(userName);
             if (null != user) {
@@ -61,7 +63,10 @@ public class TTenantUserServiceImpl extends ServiceImpl<TTenantUserMapper, TTena
                 String oldPwd = user.getPassword();
                 if (MD5Utils.checkPwd(password, oldPwd)) {
                     request.getSession().setAttribute("password", MD5Utils.string2MD5(password));
-                    flag = true;
+                    String token = TokenUtil.sign(userName, LocalDateTime.now());
+                    map.put("code",200);
+                    map.put("message","登录成功");
+                    map.put("token",token);
                 } else {
                     throw new RuntimeException("密码错误");
                 }
@@ -71,7 +76,7 @@ public class TTenantUserServiceImpl extends ServiceImpl<TTenantUserMapper, TTena
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return flag;
+        return map;
     }
 
     @Override
