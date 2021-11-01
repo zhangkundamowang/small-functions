@@ -3,12 +3,10 @@ package com.zk.mybatisplus.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -83,11 +81,8 @@ public class UploadController {
                 return "上传第" + (i++) + "个文件失败";
             }
         }
-
         return "上传成功";
-
     }
-
 
 }
 
