@@ -141,6 +141,16 @@
             <artifactId>java-jwt</artifactId>
             <version>3.5.0</version>
         </dependency>
+        <!-- jsp -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <!--<scope>provided</scope>-->
+        </dependency>
         <!-- net.sf.json 开始 -->
         <dependency>
             <groupId>commons-beanutils</groupId>
