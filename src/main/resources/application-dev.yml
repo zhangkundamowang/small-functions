@@ -1,5 +1,7 @@
 server:
   port: 8889
+  servlet:
+    context-path: /demo
 
 spring:
   datasource:
@@ -12,8 +14,10 @@ spring:
       max-request-size: 2048MB  # 连续上传文件大小
   mvc:
     view:
-      prefix: /WEB-INF/jsp/
-      suffix: .jsp
+      prefix: classpath:/templates/
+      suffix: .html
+#      prefix: /WEB-INF/jsp/
+#      suffix: .jsp
 
 #mybatis:
 #  mapper-locations: classpath:com/mapper/xml/*.xml
@@ -31,4 +35,4 @@ mybatis-plus:
 openHttps: close #关闭https
 
 swagger:
-  enable: true  #启动swagger
+  enable: false  #启动swagger

@@ -10,3 +10,4 @@ SpringBoot框架
  8.添加map和xml互相转换
  9.添加过滤器，进行登录认证
  10.添加文件上传demo
+ 11.播放resources/static资源下的视频
