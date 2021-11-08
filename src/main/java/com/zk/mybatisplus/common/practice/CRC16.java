@@ -61,5 +61,6 @@ public class CRC16 {
 		// 0x02 05 00 03 FF 00 , crc16=7C 09
 		int crc = CRC16.calcCrc16(new byte[] { 0x02, 0x05, 0x00, 0x03, (byte) 0xff, 0x00 });
 		System.out.println(String.format("0x%04x", crc));
+		System.out.println(String.format("%04x", crc));
 	}
 }
