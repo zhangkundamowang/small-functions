@@ -1,7 +1,5 @@
 server:
   port: 8889
-  servlet:
-    context-path: /demo
 
 spring:
   datasource:
@@ -16,8 +14,17 @@ spring:
     view:
       prefix: classpath:/templates/
       suffix: .html
-#      prefix: /WEB-INF/jsp/
-#      suffix: .jsp
+  mail:
+    default-encoding: utf-8
+    # 主机地址
+    host: smtp.163.com
+    # 邮箱名
+    username: luckkun123@163.com
+    # 授权码（不是密码）
+    password: EWVEDVMFWUECKAQE
+    #设置协议及端口
+    protocol: smtps
+    port: 465
 
 #mybatis:
 #  mapper-locations: classpath:com/mapper/xml/*.xml
@@ -35,4 +42,4 @@ mybatis-plus:
 openHttps: close #关闭https
 
 swagger:
-  enable: false  #启动swagger
+  enable: true  #启动swagger

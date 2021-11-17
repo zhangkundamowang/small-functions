@@ -1,6 +1,7 @@
 package com.zk.mybatisplus.common.utils;
 
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -10,6 +11,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.scheme.Scheme;
@@ -28,6 +30,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.net.ssl.*;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
@@ -75,6 +78,52 @@ public class HttpUtil {
         // 在提交请求之前 测试连接是否可用
         configBuilder.setStaleConnectionCheckEnabled(true);
         requestConfig = configBuilder.build();
+    }
+
+    /**
+     * 发送 GET 请求（HTTP），不带输入数据
+     * @param url
+     */
+    public static String doGet(String url) {
+        return doGet(url, new HashMap<String, Object>());
+    }
+
+    /**
+     * 发送 GET 请求（HTTP），K-V形式
+     * @param url
+     * @param params
+     */
+    public static String doGet(String url, Map<String, Object> params) {
+        String apiUrl = url;
+        StringBuffer param = new StringBuffer();
+        int i = 0;
+        for (String key : params.keySet()) {
+            if (i == 0)
+                param.append("?");
+            else
+                param.append("&");
+            param.append(key).append("=").append(params.get(key));
+            i++;
+        }
+        apiUrl += param;
+        String result = null;
+        HttpClient httpclient = new DefaultHttpClient();
+        try {
+            HttpGet httpPost = new HttpGet(apiUrl);
+            HttpResponse response = httpclient.execute(httpPost);
+            int statusCode = response.getStatusLine().getStatusCode();
+
+            //System.out.println("执行状态码 : " + statusCode);
+
+            HttpEntity entity = response.getEntity();
+            if (entity != null) {
+                InputStream instream = entity.getContent();
+                result = IOUtils.toString(instream, "UTF-8");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     /**

@@ -18,7 +18,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/relation")
-@Api(tags = "用户角色关系管理", value = "用户角色关系管理")
+@Api(tags = "测试经纬度管理", value = "测试经纬度管理")
 public class BaiDuMapController {
 
     @Resource
