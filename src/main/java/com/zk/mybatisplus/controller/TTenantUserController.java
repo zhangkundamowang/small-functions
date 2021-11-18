@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 用户管理
@@ -42,12 +43,10 @@ public class TTenantUserController {
         return userService.findUserByPage(pageNo, pageSize);
     }
 
-    @RequestMapping(value = "/findById", method = RequestMethod.POST)
-    @ApiOperation(value = "通过id查找用户")
-    public TTenantUser findUserById(
-            @ApiParam(name = "id", value = "用户id")
-            @RequestParam(value = "id", required = true) Integer id) {
-        return userService.findUserById(id);
+    @RequestMapping(value = "/findByTime", method = RequestMethod.POST)
+    @ApiOperation(value = "查找半月内内登陆的用户")
+    public List<TTenantUser> findByTime() {
+        return userService.findByTime();
     }
 
     @RequestMapping(value = "/findByName", method = RequestMethod.POST)

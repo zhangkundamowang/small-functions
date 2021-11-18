@@ -37,6 +37,16 @@
         where r.id=#{roleId}
     </select>
 
+    <!--查询时间段 between and -->
+    <select id="findByTime" resultType="com.zk.mybatisplus.model.TTenantUser" >
+        SELECT t.*
+        FROM t_tenant_user t
+        <where>
+            login_time between  #{beforeTime} and #{nowTime}
+        </where>
+    </select>
+
+
     <!--查询的字段  相对TTenantUser类中属性少的字段为null 相对TTenantUser类中属性多的字段查不出-->
     <select id="getUserById" resultType="com.zk.mybatisplus.model.TTenantUser" >
         SELECT t.*

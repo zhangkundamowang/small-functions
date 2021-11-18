@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,4 +34,6 @@ public interface TTenantUserService extends IService<TTenantUser> {
      */
     boolean auth(String userName,String pwd);
 
+
+    List<TTenantUser> findByTime();
 }

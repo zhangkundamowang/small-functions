@@ -30,11 +30,14 @@ public interface TTenantUserMapper extends BaseMapper<TTenantUser> {
 
     TTenantUser selectUserByName(@Param("name") String name);
 
-    TTenantUser selectUserByNameAndPwd(@Param("name") String name,@Param("password") String password);
+    TTenantUser selectUserByNameAndPwd(@Param("name") String name, @Param("password") String password);
 
     /**
      * 注意@Param("roleId") 这是传的参数
      */
     TTenantRole findRoleUnderUser(@Param("roleId") Integer roleId);
+
+    List<TTenantUser> findByTime(@Param("nowTime") String nowTime,
+                                 @Param("beforeTime") String beforeTime);
 
 }

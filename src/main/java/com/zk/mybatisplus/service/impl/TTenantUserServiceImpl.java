@@ -15,8 +15,11 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -95,6 +98,16 @@ public class TTenantUserServiceImpl extends ServiceImpl<TTenantUserMapper, TTena
             e.printStackTrace();
         }
         return flag;
+    }
+
+    @Override
+    public List<TTenantUser> findByTime() {
+        //15天前时间戳
+        long before=new Date().getTime()-(1000*60*60*24*15);
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String nowTime = format.format(new Date());
+        String beforeTime = format.format(new Date(before));
+        return userMapper.findByTime(nowTime,beforeTime);
     }
 
 
