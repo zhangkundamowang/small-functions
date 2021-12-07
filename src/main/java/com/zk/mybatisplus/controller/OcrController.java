@@ -31,7 +31,7 @@ public class OcrController {
     @ResponseBody
     public IDCardOCRResponse OCRIdCardTest(@RequestParam(value = "file") MultipartFile file, @RequestParam(value = "card_side") String cardSize, Model model){
         try {
-            Credential cred = new Credential("AKIDf9OcgVzOVO2Rq2jA8pLdfQyGKLH0Ohld", "qSq9F6i780cyHxOZkiRzNjrkofHdlodI");
+            Credential cred = new Credential("XXX", "XXX");
 
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.setEndpoint("ocr.tencentcloudapi.com");
