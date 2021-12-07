@@ -2,6 +2,16 @@ server:
   port: 8889
 
 spring:
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    check-template: true
+    servlet:
+      content-type: text/html
+    prefix: classpath:/templates/\
+    suffix: .html
+
   datasource:
     url: jdbc:mysql://localhost:3306/springboot
     username: root
@@ -25,7 +35,6 @@ spring:
     #设置协议及端口
     protocol: smtps
     port: 465
-
 #mybatis:
 #  mapper-locations: classpath:com/mapper/xml/*.xml
 #  type-aliases-package: com.model
