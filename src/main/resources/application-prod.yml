@@ -2,6 +2,16 @@ server:
   port: 8889
 
 spring:
+  thymeleaf:
+    cache: false
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    check-template: true
+    servlet:
+      content-type: text/html
+    prefix: classpath:/templates/
+    suffix: .html
+
   datasource:
     url: jdbc:mysql://localhost:3306/springboot
     username: root
@@ -12,8 +22,19 @@ spring:
       max-request-size: 2048MB  # 连续上传文件大小
   mvc:
     view:
-      prefix: /WEB-INF/jsp/
-      suffix: .jsp
+      prefix: classpath:/templates/
+      suffix: .html
+  mail:
+    default-encoding: utf-8
+    # 主机地址
+    host: smtp.163.com
+    # 邮箱名
+    username: luckkun123@163.com
+    # 授权码（不是密码）
+    password: EWVEDVMFWUECKAQE
+    #设置协议及端口
+    protocol: smtps
+    port: 465
 
 #mybatis:
 #  mapper-locations: classpath:com/mapper/xml/*.xml
@@ -31,4 +52,4 @@ mybatis-plus:
 openHttps: close #关闭https
 
 swagger:
-  enable: true #启动swagger
+  enable: true  #启动swagger

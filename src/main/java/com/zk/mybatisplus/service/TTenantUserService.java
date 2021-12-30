@@ -27,13 +27,15 @@ public interface TTenantUserService extends IService<TTenantUser> {
     /**
      * 登录
      */
-    Map<String,Object> login(HttpServletRequest request, String userName, String password);
+    Map<String, Object> login(HttpServletRequest request, String userName, String password);
 
     /**
      * 注册
      */
-    boolean auth(String userName,String pwd);
+    boolean auth(String userName, String pwd);
 
-
+    /**
+     * 查找半个月内登陆的用户
+     */
     List<TTenantUser> findByTime();
 }

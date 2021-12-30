@@ -9,11 +9,9 @@ import com.tencentcloudapi.ocr.v20181119.models.IDCardOCRResponse;
 import com.tencentcloudapi.tia.v20180226.models.Model;
 import net.sf.json.JSONObject;
 import org.apache.commons.codec.binary.Base64;
-import org.apache.http.entity.ContentType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +29,7 @@ public class OcrController {
     @ResponseBody
     public IDCardOCRResponse OCRIdCardTest(@RequestParam(value = "file") MultipartFile file, @RequestParam(value = "card_side") String cardSize, Model model){
         try {
+            //说明：new Credential("secretId","secretKey"),这两个参数在腾讯云控制台申请
             Credential cred = new Credential("XXX", "XXX");
 
             HttpProfile httpProfile = new HttpProfile();
@@ -50,7 +49,6 @@ public class OcrController {
             IDCardOCRResponse resp = client.IDCardOCR(req);
             return resp;
         } catch (Exception e) {
-            // TODO: handle exception
             e.printStackTrace();
         }
         return null;

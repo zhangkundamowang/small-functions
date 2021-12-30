@@ -1,6 +1,5 @@
 package com.zk.mybatisplus.common.DingTalk;
 
-import com.zk.mybatisplus.common.utils.DingDingSendMsgUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,10 +8,10 @@ import java.util.List;
  */
 public class DingDindSendMsg {
     public static void main(String[] args) {
-         DingDingSendMsgUtils.sendMessageAtAll("测试艾特全体成员");
+         DingDingSendMsgUtils.sendMessageAtAll("测试@全体成员");
 
         List<String> mobileList=new ArrayList<>();
-        mobileList.add("18056250973");
+        mobileList.add("18012344321");
         DingDingSendMsgUtils.sendMessageAtChosePerson("测试根据手机号@成员",mobileList);
     }
 }

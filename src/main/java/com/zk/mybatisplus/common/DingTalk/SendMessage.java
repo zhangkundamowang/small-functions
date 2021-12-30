@@ -8,17 +8,16 @@ import java.util.Map;
  */
 public class SendMessage {
     public static void main(String[] args){
-
         //钉钉的webhook
         String dingDingToken="https://oapi.dingtalk.com/robot/send?access_token=6b459c9df3cccbc9cc2bf2df7de4838b816c5d78028620572001c570c9265da8";
         //请求的JSON数据，这里我用map在工具类里转成json格式
-        Map<String,Object> json=new HashMap();
+        Map<String,Object> map=new HashMap();
         Map<String,Object> text=new HashMap();
-        json.put("msgtype","text");
+        map.put("msgtype","text");
         //content要包含自定义关键字
         text.put("content","临涣焦化告警：VOCs排放浓度大于上限：61.89");
-        json.put("text",text);
-        String response = SendHttps.sendPostByMap(dingDingToken, json);
+        map.put("text",text);
+        String response = SendHttpUtil.sendPostByMap(dingDingToken, map);
         System.out.println("相应结果："+response);
 
     }

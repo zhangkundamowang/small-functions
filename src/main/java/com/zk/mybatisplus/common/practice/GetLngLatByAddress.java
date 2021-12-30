@@ -12,8 +12,7 @@ import net.sf.json.JSONObject;
 /**
  * 获取某个地点的经纬度
  */
-public class GetLngLat {
-    // static String AK = "x5oankmSoKM9XEZsbtWPfE7aabnojtI9"; // 百度地图密钥
+public class GetLngLatByAddress {
     static String AK = "TEe4h7RpLFfDOFH1r6o5o3Ds1CLpNshG"; // 百度地图密钥
 
     public static void main(String[] args) {

@@ -19,9 +19,6 @@ import java.util.List;
 
 /**
  * 角色管理
- *
- * @author zk
- * @since 2021-09-06
  */
 @RestController
 @RequestMapping("/role")

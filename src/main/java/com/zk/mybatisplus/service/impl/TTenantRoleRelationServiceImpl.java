@@ -11,10 +11,6 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author zk
- * @since 2021-09-08
- */
 @Service
 public class TTenantRoleRelationServiceImpl extends ServiceImpl<TTenantRoleRelationMapper, TTenantRoleRelation> implements TTenantRoleRelationService {
 

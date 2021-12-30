@@ -11,8 +11,6 @@ public class ByteTest {
 
     /**
      * 合并两个byte数组
-     *
-     * @return 合并后的新数组
      */
     public static byte[] mergeBytes(byte[] data1, byte[] data2) {
         byte[] data3 = new byte[data1.length + data2.length];

@@ -1,5 +1,4 @@
 package com.zk.mybatisplus.common.practice;
-
 import com.zk.mybatisplus.common.utils.MapUtils;
 import org.gavaghan.geodesy.Ellipsoid;
 import org.gavaghan.geodesy.GeodeticCalculator;
@@ -10,7 +9,6 @@ import org.gavaghan.geodesy.GlobalCoordinates;
  * JAVA计算两个经纬度之间的距离
  * 经度范围是0-180°,纬度范围是0-90°
  */
-
 public class GetDistanceByLngLat {
 
     public static void main(String[] args) {

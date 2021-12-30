@@ -10,14 +10,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class SendHttps {
-    private static Logger logger = LoggerFactory.getLogger(SendHttps.class);
+public class SendHttpUtil {
+    private static Logger logger = LoggerFactory.getLogger(SendHttpUtil.class);
     /**
      * 发送POST请求，参数是Map, contentType=x-www-form-urlencoded
-     *
-     * @param url
-     * @param mapParam
-     * @return
      */
     public static String sendPostByMap(String url, Map<String, Object> mapParam) {
         Map<String, String> headParam = new HashMap();
@@ -27,10 +23,7 @@ public class SendHttps {
 
     /**
      * 向指定 URL 发送POST方法的请求
-     *
-     * @param url   发送请求的 URL
-     * @param param 请求参数，
-     * @return 所代表远程资源的响应结果
+     * url:发送请求的URL,param:请求参数，return:所代表远程资源的响应结果
      */
     public static String sendPost(String url, Map<String, Object> param, Map<String, String> headParam) {
         PrintWriter out = null;
@@ -45,7 +38,6 @@ public class SendHttps {
             conn.setRequestProperty("connection", "Keep-Alive");
             conn.setRequestProperty("user-agent",
                     "Fiddler");
-
             if (headParam != null) {
                 for (Entry<String, String> entry : headParam.entrySet()) {
                     conn.setRequestProperty(entry.getKey(), entry.getValue());

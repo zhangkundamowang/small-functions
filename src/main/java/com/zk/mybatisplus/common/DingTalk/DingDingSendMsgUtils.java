@@ -1,4 +1,4 @@
-package com.zk.mybatisplus.common.utils;
+package com.zk.mybatisplus.common.DingTalk;
 
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.http.HttpRequest;
@@ -24,7 +24,7 @@ public class DingDingSendMsgUtils {
     /**
      * 自定义关键词，安全设置，后期可更换或写在配置文件作为参数传入
      */
-    private static final String CUSTOM_KEYWORDS = "告警:";
+    private static final String CUSTOM_KEYWORDS = "告警信息:";
 
     /**
      * 提示@所有人

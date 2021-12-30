@@ -12,10 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.util.Map;
 
-/**
- * @author zk
- * @since 2021-09-08
- */
 @RestController
 @RequestMapping("/relation")
 @Api(tags = "测试经纬度管理", value = "测试经纬度管理")

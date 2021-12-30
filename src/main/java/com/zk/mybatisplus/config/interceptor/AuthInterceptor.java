@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 /**
  * 拦截器
  * preHandler：  业务处理器处理请求之前被调用，对用户的request进行处理，若返回值为true，则继续调用后续的拦截器和目标方法；
- * 若返回值为false，则终止请求；这里可以加上登录校验，权限拦截等。
+                 若返回值为false，则终止请求；这里可以加上登录校验，权限拦截等。
  * postHandler： Controller执行后但未返回视图前调用该方法，这里可以对返回用户前的模型数据进行加工处理。
  * afterCompletion：Controller执行后且返回视图后调用，可以得到Controller时的异常信息，这里可以记录操作日志，资源清理等
  */

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
- * jwt  session 结合过滤器实现登陆登出
+ *  实现登陆登出
  */
 
 @RestController

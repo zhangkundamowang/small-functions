@@ -19,9 +19,7 @@ import java.nio.file.Paths;
 @RequestMapping("/file")
 @AllArgsConstructor
 public class FileRestController {
- 
     private final NonStaticResourceHttpRequestHandler nonStaticResourceHttpRequestHandler;
-
 
     /**
      * 播放resources资源下的视频
