@@ -12,4 +12,4 @@ SpringBoot框架
  10.添加文件上传demo
  11.播放resources/static资源下的视频
  12.Java实现钉钉机器人推送消息
- 13.腾讯云OCR识别身份证
+ 13.腾讯云OCR识别身份证·

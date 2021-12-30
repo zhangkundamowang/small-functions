@@ -26,7 +26,6 @@ public class BaiDuMapController {
 
     @Resource
     private TTenantRoleRelationService service;
-
     @RequestMapping(value = "/getDistance", method = RequestMethod.POST)
     @ApiOperation(value = "测试两个经纬度之间的距离")
     public Double get() {
