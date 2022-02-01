@@ -18,7 +18,7 @@
     <!--                   2.如果日期没有发生变化，但是当前日志的文件大小超过1KB时，对当前日志进行分割 重命名-->
     <appender name="SYSLOG"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>H://idea.workspace/MyProject/MybatisPlus/log/log.log</File>
+        <File>D://idea.workspace/small-functions/log/log.log</File>
 
         <!-- rollingPolicy:当发生滚动时，决定 RollingFileAppender 的行为，涉及文件移动和重命名。 -->
         <!-- TimeBasedRollingPolicy： 最常用的滚动策略，它根据时间来制定滚动策略，既负责滚动也负责出发滚动
@@ -27,7 +27,7 @@
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
             <!-- 活动文件的名字会根据fileNamePattern的值，每隔一段时间改变一次 -->
             <!-- 文件名：log/sys.2017-12-05.0.log -->
-            <FileNamePattern>H://idea.workspace/MyProject/MybatisPlus/log/%d/log.%d.%i.log</FileNamePattern>
+            <FileNamePattern>D://idea.workspace/small-functions/log/%d/log.%d.%i.log</FileNamePattern>
             <!--每天产生一个日志文件，若达到最大值,则再生成一个文件.该日志文件的保存期限为5天 -->
             <!--<MaxHistory>5</MaxHistory>      下一行测试完换成上一行         -->
             <MaxHistory>5</MaxHistory>

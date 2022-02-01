@@ -15,7 +15,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/springboot
     username: root
-    password: root
+    password: kun032713
   servlet:
     multipart:
       max-file-size: 500MB      # 单个文件大小（Mb和Kb都可以）
