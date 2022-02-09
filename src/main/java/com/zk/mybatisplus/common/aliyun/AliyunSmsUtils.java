@@ -20,8 +20,8 @@ public class AliyunSmsUtils {
     static final String domain = "dysmsapi.aliyuncs.com";
  
     // 此处需要替换成开发者自己的AK(在阿里云访问控制台寻找)
-    static final String accessKeyId = "LTAI5tSJSDtUaDMAAoriuqY5";
-    static final String accessKeySecret = "AQLmguaT1BFsOi5oe07iMUZmcpwNgm";
+    static final String accessKeyId = "LTAI5tSJSDtUaDMAXXXX";
+    static final String accessKeySecret = "AQLmguaT1BFsOi5oe0XXXX";
  
     public static SendSmsResponse sendSms(String telephone, String code) throws ClientException {
         //可自助调整超时时间
