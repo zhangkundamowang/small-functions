@@ -6,52 +6,53 @@ import java.util.Map;
 public class JsonTest {
     public static void main(String[] args) {
         String jsonStr = "{\n" +
-                "     \"code\": \"FlightControllerState\",\n" +
-                "    \"nestId\": \"UAV0001\",\n" +
+                "\t\"code\": \"WaypointMission\",\n" +
                 "\t\"data\": {\n" +
-                "\t\t\"activeBrakeEngaged\": false,\n" +
-                "\t\t\"aircraftHeadDirection\": 127,\n" +
-                "\t\t\"aircraftLocation\": {\n" +
-                "\t\t\t\"altitude\": 0.0,\n" +
-                "\t\t\t\"latitude\": 0.0,\n" +
-                "\t\t\t\"longitude\": 0.0\n" +
-                "\t\t},\n" +
-                "\t\t\"doesUltrasonicHaveError\": false,\n" +
-                "\t\t\"failsafeEnabled\": false,\n" +
-                "\t\t\"flightCount\": 0,\n" +
-                "\t\t\"flightLogIndex\": 0,\n" +
-                "\t\t\"flightMode\": \"GPS_ATTI\",\n" +
-                "\t\t\"flightTimeInSeconds\": 0,\n" +
-                "\t\t\"flying\": false,\n" +
-                "\t\t\"goHomeHeight\": 0,\n" +
-                "\t\t\"goingHome\": false,\n" +
-                "\t\t\"hasReachedMaxFlightHeight\": false,\n" +
-                "\t\t\"hasReachedMaxFlightRadius\": false,\n" +
-                "\t\t\"homeLocationSet\": false,\n" +
-                "\t\t\"iMUPreheating\": false,\n" +
-                "\t\t\"islandingConfirmationNeeded\": false,\n" +
-                "\t\t\"lowerThanBatteryWarningThreshold\": false,\n" +
-                "\t\t\"lowerThanSeriousBatteryWarningThreshold\": false,\n" +
-                "\t\t\"motorsOn\": false,\n" +
-                "\t\t\"multipModeOpen\": false,\n" +
-                "\t\t\"satelliteCount\": 0,\n" +
-                "\t\t\"takeoffLocationAltitude\": 0.0,\n" +
-                "\t\t\"ultrasonicBeingUsed\": false,\n" +
-                "\t\t\"ultrasonicHeightInMeters\": 0.0,\n" +
-                "\t\t\"velocityX\": 0.0,\n" +
-                "\t\t\"velocityY\": 0.0,\n" +
-                "\t\t\"velocityZ\": 0.0,\n" +
-                "\t\t\"visionPositioningSensorBeingUsed\": false\n" +
+                "\t\t\"exitMissionOnRCSignalLostEnabled\": false,\n" +
+                "\t\t\"missionID\": 0,\n" +
+                "\t\t\"gimbalElevationOptimizeEnabled\": false,\n" +
+                "\t\t\"finishedAction\": \"GO_HOME\",\n" +
+                "\t\t\"flightPathMode\": \"NORMAL\",\n" +
+                "\t\t\"waypointList\": [\n" +
+                "\t\t\t{\n" +
+                "\t\t\t\t\"altitude\": 30.0,\n" +
+                "\t\t\t\t\"latitude\": 22.000269796599999,\n" +
+                "\t\t\t\t\"longitude\": 113.0,\n" +
+                "\t\t\t\t\"gimbalPitch\": 0.0,\n" +
+                "\t\t\t\t\"actionRepeatTimes\": 1,\n" +
+                "\t\t\t\t\"heading\": 0,\n" +
+                "\t\t\t\t\"isUseCustomDirection\": false,\n" +
+                "\t\t\t\t\"shootPhotoDistanceInterval\": 0.0,\n" +
+                "\t\t\t\t\"actionTimeoutInSeconds\": 999,\n" +
+                "\t\t\t\t\"headingInner\": 0,\n" +
+                "\t\t\t\t\"speed\": 0.0,\n" +
+                "\t\t\t\t\"shootPhotoTimeInterval\": 0.0,\n" +
+                "\t\t\t\t\"cornerRadiusInMeters\": 0.2,\n" +
+                "\t\t\t\t\"turnMode\": \"COUNTER_CLOCKWISE\",\n" +
+                "\t\t\t\t\"waypointActions\": [\n" +
+                "\t\t\t\t\t{\n" +
+                "\t\t\t\t\t\t\"actionType\": \"ROTATE_AIRCRAFT\",\n" +
+                "\t\t\t\t\t\t\"actionParam\": 135\n" +
+                "\t\t\t\t\t} \n" +
+                "\t\t\t\t]\n" +
+                "\t\t\t}\n" +
+                "\t\t],\n" +
+                "\t\t\"gotoFirstWaypointMode\": \"SAFELY\",\n" +
+                "\t\t\"repeatTimes\": 1,\n" +
+                "\t\t\"latitude\": 22.0,\n" +
+                "\t\t\"longitude\": 113.0,\n" +
+                "\t\t\"gimbalPitchRotationEnabled\": true,\n" +
+                "\t\t\"maxFlightSpeed\": 10.0,\n" +
+                "\t\t\"headingMode\": \"TOWARD_POINT_OF_INTEREST\",\n" +
+                "\t\t\"autoFlightSpeed\": 5.0\n" +
                 "\t}\n" +
                 "}";
         JSONObject jsonObject = JSONObject.parseObject(jsonStr);
-        Map<String, Object> data = (Map<String, Object>) jsonObject.get("data");
-        String activeBrakeEngaged = data.get("activeBrakeEngaged").toString();
-        System.out.println(activeBrakeEngaged + "===");
-        Map<String, Object> a = (Map<String, Object>) data.get("aircraftLocation");
+        String code=jsonObject.getString("code");
+        Map<String,Object> map=(Map<String,Object>)jsonObject.get("data");
 
-        System.out.println(a + "---");
-        System.out.println(a.get("altitude".toString()));
+        System.out.println("code"+code  );
+        System.out.println(map);
 
     }
 }
