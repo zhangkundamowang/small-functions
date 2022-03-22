@@ -8,7 +8,7 @@ public class Main {
         PollingThread pollingThread=new PollingThread();
         pollingThread.start();
         int i=1;
-        while(true) {
+        while(i<=10000) {
             PollingThread.queue.offer(new Message("新消息"+i));
             i++;
             //有消息入队后激活轮询线程
