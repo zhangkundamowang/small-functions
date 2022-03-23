@@ -3,12 +3,13 @@ package com.zk.mybatisplus.common.practice;
 import cn.hutool.core.bean.BeanUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.zk.mybatisplus.model.TFlightLog;
+
 import java.util.Map;
 
 public class BeanUtilTest {
     public static void main(String[] args) {
 
-        String json="{\n" +
+        String json = "{\n" +
                 "    \"code\":\"FlightControllerState\",\n" +
                 "    \"data\":{\n" +
                 "        \"activeBrakeEngaged\":false,\n" +
@@ -49,7 +50,7 @@ public class BeanUtilTest {
                 "}";
         JSONObject jsonObject = JSONObject.parseObject(json);
         Map<String, Object> data = (Map<String, Object>) jsonObject.get("data");
-        System.out.println(data+"===data");
+        System.out.println(data + "===data");
         Map<String, Object> s = (Map<String, Object>) data.get("aircraftLocation");
         data.put("aircraftLocationAltitude", s.get("altitude"));
         data.put("aircraftLocationLatitude", s.get("latitude"));

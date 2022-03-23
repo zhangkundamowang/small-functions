@@ -1,17 +1,19 @@
-package com.zk.mybatisplus.common.lunxun2;
+package com.zk.mybatisplus.common.pollingthread;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.concurrent.locks.Lock;
 
-public class ThreadTest2 extends Thread implements Runnable {
+/**
+ * 线程可以传参
+ * index.m3u8一旦生成就只执行一次推送
+ */
+public class PollingThread extends Thread implements Runnable {
     private String nestId;
     private String url;
-
     public void setNestId(String nestId) {
         this.nestId = nestId;
     }
-
     public void setUrl(String url) {
         this.url = url;
     }
@@ -21,9 +23,9 @@ public class ThreadTest2 extends Thread implements Runnable {
         File file = new File(url);
         Boolean b = true;
         while (b) {
-            while (file.exists()&&b) {
+            while (file.exists() && b) {
                 System.out.println("执行run方法");
-                pushVideo(nestId,url);
+                pushVideo(nestId, url);
                 b = false;
             }
             //让线程阻塞
@@ -41,6 +43,6 @@ public class ThreadTest2 extends Thread implements Runnable {
         HashMap<String, Object> map = new HashMap<>();
         map.put("key", nestId);
         map.put("data", url);
-        System.out.println("map==="+map);
+        System.out.println("map===" + map);
     }
 }

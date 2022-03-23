@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.sql.SQLException;
 import java.util.Date;
+
 import com.zk.mybatisplus.common.utils.HttpContextUtil;
 import com.zk.mybatisplus.mapper.LogMapper;
 import com.zk.mybatisplus.model.Log;
@@ -15,14 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-/**
- * AOP实现日志
- */
 @Order(3)
 @Component
 @Aspect
 public class LogAopAspect {
-    // 日志mapper，省事注入mapper ,正常注入service
+    // 日志mapper,省事注入mapper,正常注入service
     @Autowired
     private LogMapper logMapper;
 

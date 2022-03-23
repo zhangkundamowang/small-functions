@@ -1,6 +1,7 @@
 package com.zk.mybatisplus.common.practice;
 
 import com.alibaba.fastjson.JSONObject;
+
 import java.util.Map;
 
 public class JsonTest {
@@ -48,10 +49,9 @@ public class JsonTest {
                 "\t}\n" +
                 "}";
         JSONObject jsonObject = JSONObject.parseObject(jsonStr);
-        String code=jsonObject.getString("code");
-        Map<String,Object> map=(Map<String,Object>)jsonObject.get("data");
-
-        System.out.println("code"+code  );
+        String code = jsonObject.getString("code");
+        Map<String, Object> map = (Map<String, Object>) jsonObject.get("data");
+        System.out.println("code" + code);
         System.out.println(map);
 
     }
