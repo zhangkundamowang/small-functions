@@ -27,7 +27,7 @@ public class BreakContinueTest {
         int i = 1;
         int k = 4;
         for (; i <= 7; i++, k--) {
-            if (k == 0) break ;
+            if (k == 0) break;
             System.out.println("i=" + i + " ; k=" + k);
         }
     }
@@ -38,7 +38,7 @@ public class BreakContinueTest {
     public void testContinue1() {
         System.out.println("--------测试continue-------");
         for (int i = 1; i <= 7; i++) {
-            if (i %3==0) continue;
+            if (i % 3 == 0) continue;
             System.out.println("i=" + i);
         }
     }
@@ -48,7 +48,7 @@ public class BreakContinueTest {
         for (int i = 1; i < 10; i++) {
             System.out.println("i=" + i);
             for (int j = 0; j < 10; j++) {
-                if (j == 9) continue ;
+                if (j == 9) continue;
             }
         }
     }

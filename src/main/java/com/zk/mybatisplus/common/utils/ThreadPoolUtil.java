@@ -113,17 +113,17 @@ public class ThreadPoolUtil {
 
         // 初始线程数、核心线程数、正在执行的任务数量、已完成任务数量、任务总数、队列里缓存的任务数量、池中存在的最大线程数、最大允许的线程数、线程空闲时间、线程池是否关闭、线程池是否终止
         /*log.info(String.format("\r\n初始线程数: %d \r\n核心线程数: %d \r\n正在执行的任务数量: %d \r\n已完成任务数量: %d \r\n任务总数: %d \r\n队列里缓存的任务数量: %d \r\n池中存在的最大线程数: %d \r\n最大允许的线程数: %d \r\n线程空闲时间: %d \r\n线程池是否关闭: %s \r\n线程池是否终止: %s\r\n",
-                threadPool.getPoolSize(),
-                threadPool.getCorePoolSize(),
-                threadPool.getActiveCount(),
-                threadPool.getCompletedTaskCount(),
-                threadPool.getTaskCount(),
-                threadPool.getQueue().size(),
-                threadPool.getLargestPoolSize(),
-                threadPool.getMaximumPoolSize(),
-                threadPool.getKeepAliveTime(TimeUnit.MILLISECONDS),
-                threadPool.isShutdown(),
-                threadPool.isTerminated()));*/
+                threadpool.getPoolSize(),
+                threadpool.getCorePoolSize(),
+                threadpool.getActiveCount(),
+                threadpool.getCompletedTaskCount(),
+                threadpool.getTaskCount(),
+                threadpool.getQueue().size(),
+                threadpool.getLargestPoolSize(),
+                threadpool.getMaximumPoolSize(),
+                threadpool.getKeepAliveTime(TimeUnit.MILLISECONDS),
+                threadpool.isShutdown(),
+                threadpool.isTerminated()));*/
 
         return hashMap;
     }

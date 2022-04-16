@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zk.mybatisplus.mapper.TRoutesDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zk.mybatisplus.model.TRoutesDetail">
+        <result column="tenant_accounts" property="tenantAccounts" />
+        <result column="company_name" property="companyName" />
+        <result column="mission_id" property="missionId" />
+        <result column="flight_record_id" property="flightRecordId" />
+        <result column="sequence" property="sequence" />
+        <result column="pitch" property="pitch" />
+        <result column="orientation_mode" property="orientationMode" />
+        <result column="roll" property="roll" />
+        <result column="orientation" property="orientation" />
+        <result column="yaw" property="yaw" />
+        <result column="go_home_execution_state" property="goHomeExecutionState" />
+        <result column="gps_signal_level" property="gpsSignalLevel" />
+        <result column="home_location_longtitude" property="homeLocationLongtitude" />
+        <result column="home_location_latitude" property="homeLocationLatitude" />
+        <result column="aircraft_location_longtitude" property="aircraftLocationLongtitude" />
+        <result column="aircraft_location_latitude" property="aircraftLocationLatitude" />
+        <result column="aircraft_location_altitude" property="aircraftLocationAltitude" />
+        <result column="flight_mode" property="flightMode" />
+        <result column="go_home_assessment" property="goHomeAssessment" />
+        <result column="remaining_flight_time" property="remainingFlightTime" />
+        <result column="time_needed_to_go_home" property="timeNeededToGoHome" />
+        <result column="time_needed_to_land_from_current_height" property="timeNeededToLandFromCurrentHeight" />
+        <result column="battery_percentage_needed_to_go_home" property="batteryPercentageNeededToGoHome" />
+        <result column="battery_percentage_needed_to_land_from_current_height" property="batteryPercentageNeededToLandFromCurrentHeight" />
+        <result column="max_radius_aircraft_can_fly_and_go_home" property="maxRadiusAircraftCanFlyAndGoHome" />
+        <result column="smart_rth_state" property="smartRthState" />
+        <result column="smart_rth_countdown" property="smartRthCountdown" />
+        <result column="is_going_home" property="isGoingHome" />
+        <result column="is_multip_mode_open" property="isMultipModeOpen" />
+        <result column="is_home_location_set" property="isHomeLocationSet" />
+        <result column="is_failsafe_enabled" property="isFailsafeEnabled" />
+        <result column="motors_on" property="motorsOn" />
+        <result column="is_ultrasonic_being_used" property="isUltrasonicBeingUsed" />
+        <result column="is_imu_preheating" property="isImuPreheating" />
+        <result column="is_vision_positioning_sensor_being_used" property="isVisionPositioningSensorBeingUsed" />
+        <result column="does_ultrasonic_have_error" property="doesUltrasonicHaveError" />
+        <result column="is_flying" property="isFlying" />
+        <result column="go_home_height" property="goHomeHeight" />
+        <result column="aircraft_head_direction" property="aircraftHeadDirection" />
+        <result column="ultrasonic_height_in_meters" property="ultrasonicHeightInMeters" />
+        <result column="takeoff_location_altitude" property="takeoffLocationAltitude" />
+        <result column="satellite_count" property="satelliteCount" />
+        <result column="battery_threshold_behavior" property="batteryThresholdBehavior" />
+        <result column="velocity_x" property="velocityX" />
+        <result column="velocity_y" property="velocityY" />
+        <result column="velocity_z" property="velocityZ" />
+        <result column="flight_time_in_seconds" property="flightTimeInSeconds" />
+        <result column="is_lower_than_battery_warning_threshold" property="isLowerThanBatteryWarningThreshold" />
+        <result column="is_lower_than_serious_battery_warning_threshold" property="isLowerThanSeriousBatteryWarningThreshold" />
+        <result column="flight_wind_warning" property="flightWindWarning" />
+        <result column="is_landing_confirmation_needed" property="isLandingConfirmationNeeded" />
+        <result column="flight_count" property="flightCount" />
+        <result column="flight_log_index" property="flightLogIndex" />
+        <result column="active_brake_engaged" property="activeBrakeEngaged" />
+        <result column="coordinates" property="coordinates" />
+        <result column="longitude" property="longitude" />
+        <result column="latitude" property="latitude" />
+        <result column="highly" property="highly" />
+        <result column="speed" property="speed" />
+        <result column="speed_tilt" property="speedTilt" />
+        <result column="category" property="category" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="valid" property="valid" />
+        <result column="detail" property="detail" />
+    </resultMap>
+
+</mapper>
