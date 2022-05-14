@@ -4,11 +4,12 @@ import com.zk.mybatisplus.common.utils.XmlUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.http.HttpRequest;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +19,19 @@ import java.util.Map;
 @Controller
 @Api(value = "xml", tags = "XML")
 public class XmlController {
+
+//   测试httpClient
+//    @ResponseBody
+//    @RequestMapping(value = "/testClient", method = RequestMethod.POST)
+//    public String map2xml(@RequestBody String json) {
+//        System.out.println("接口被调用...");
+//        System.out.println("接收数据为："+json);
+//        HashMap<Object, Object> map = new HashMap<>();
+//        map.put("userName", "张三");
+//        map.put("age", 10);
+//        map.put("weight", "60kg");
+//        return  map.toString();
+//    }
 
     @ResponseBody
     @RequestMapping(value = "/map2xml", method = RequestMethod.POST)
